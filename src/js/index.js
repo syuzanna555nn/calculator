@@ -142,6 +142,7 @@ actionsButtons.forEach((action) => {
   action.cancel && htmlButton.setAttribute("cancel", action.cancel);
   action.primary && htmlButton.setAttribute("primary", action.primary);
   action.green && htmlButton.setAttribute("green", action.green);
+
   htmlButton.innerHTML = action.value;
   actions.appendChild(htmlButton);
   const button = document.getElementById(action.id);
