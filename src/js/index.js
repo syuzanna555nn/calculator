@@ -163,8 +163,8 @@ actionsButtons.forEach((action) => {
           break;
         case "=":
           const localHistory = history.match(/[+\-]*(\.\d+|\d+(\.\d+)?)/g) || [];
-          const hasOperation = localHistory[localHistory.length-1].includes(['+', '-', '/', '*']);
-          total = hasOperation ? evaluateMath(total.toString() + localHistory[localHistory.length-1]) : "";
+          const hasOperation = new RegExp(/[+|-|/|*]/g).test(localHistory[localHistory.length-1]);
+          total = hasOperation ? evaluateMath(total.toString() + localHistory[localHistory.length-1]) : total;
           break;
         default:
           history += action.value;
